@@ -280,6 +280,21 @@
   .faq-title { font-family:'Cormorant Garamond',serif; font-size:clamp(38px,4vw,58px); font-weight:300; color:var(--deep); line-height:1.15; }
   .faq-title em { font-style:italic; color:var(--gold); }
   .faq-subtitle { font-size:14px; line-height:1.9; color:var(--mink); margin-top:20px; max-width:560px; margin-left:auto; margin-right:auto; }
+  .faq-group { margin-bottom:72px; }
+  .faq-group:last-child { margin-bottom:0; }
+  .faq-group-label {
+    display:flex; align-items:center; gap:20px;
+    margin-bottom:40px;
+  }
+  .faq-group-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+  .faq-group-label span {
+    font-size:9px; letter-spacing:0.45em; text-transform:uppercase; color:var(--gold);
+  }
+  .faq-group-title {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(24px,2.8vw,34px);
+    font-weight:300; color:var(--deep); margin-bottom:36px; line-height:1.2;
+  }
+  .faq-group-title em { font-style:italic; color:var(--gold); }
   .faq-item { border-bottom:1px solid rgba(122,106,90,0.18); }
   .faq-item:first-of-type { border-top:1px solid rgba(122,106,90,0.18); }
   .faq-q {
@@ -701,10 +716,13 @@
   <div class="faq-header reveal">
     <div class="section-eyebrow" style="justify-content:center"><span></span>Common Questions</div>
     <h2 class="faq-title">Everything you want<br>to <em>know</em></h2>
-    <p class="faq-subtitle">Answers to the questions brides and gift-givers ask most — about the experience, timing, and what to expect.</p>
+    <p class="faq-subtitle">Two things brides and gift-givers ask us about most — how the M.Gemi Atelier experience works, and the art of choosing the perfect wedding shoe.</p>
   </div>
 
-  <div class="faq-list reveal">
+  <!-- GROUP 1: HOW IT WORKS -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label"><span>Part One</span></div>
+    <h3 class="faq-group-title">How the <em>Atelier</em> works</h3>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -713,7 +731,7 @@
       </button>
       <div class="faq-a">
         <p>The Wedding Atelier is a bespoke shoe design experience — a private session with the M.Gemi design team where the bride works one-on-one to create a completely custom pair of wedding shoes, handcrafted in Italy. Every detail is hers: the silhouette, heel height, leather, color, lining, and embellishments.</p>
-        <p>It begins with a beautifully packaged gift box and an atelier invitation. From there, she books her design session and works directly with our team to bring her vision to life. The finished shoes arrive in a signature M.Gemi box, ready for her wedding day.</p>
+        <p>It begins with a beautifully packaged gift box and an atelier invitation. From there, she books her design session, works directly with our team to bring her vision to life, receives a fit kit to confirm sizing, and her finished shoes arrive in a signature M.Gemi box — ready for the most important walk of her life.</p>
       </div>
     </div>
 
@@ -723,8 +741,19 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>We recommend gifting the atelier experience at the engagement or bridal shower — ideally at least 10–14 weeks before the wedding date. This allows the bride ample time to dream, schedule her design session, and receive her finished shoes well before the big day.</p>
-        <p>If the wedding is sooner than 10 weeks away, please reach out to our team directly and we'll do everything we can to accommodate.</p>
+        <p>We recommend gifting the atelier experience at the engagement or bridal shower — ideally at least 10–14 weeks before the wedding date. This allows the bride ample time to dream, schedule her design session, try the fit kit, and receive her finished shoes well before the big day.</p>
+        <p>If the wedding is sooner than 10 weeks away, please reach out to our team directly and we will do everything we can to accommodate.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the Fit Kit?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>After your design session, we send you a fit kit — a set of plain white shoes in the exact silhouette you have chosen, across a range of sizes. These are not your finished shoes; they are a precise fitting tool so that when your bespoke pair is crafted in Italy, the fit is perfect from the very first wear.</p>
+        <p>You simply try them on, tell us which size feels right, and we pass that confirmation to our artisans in Italy before production begins.</p>
       </div>
     </div>
 
@@ -734,40 +763,29 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Both options are available. In-person sessions take place at our New York atelier, and are a truly special experience — seeing and feeling the leathers, exploring samples, and working side-by-side with our design team.</p>
+        <p>Both options are available. In-person sessions take place at our New York atelier — a truly special experience where you can see and feel the leathers, explore samples, and work side-by-side with our design team.</p>
         <p>Virtual sessions are equally thorough and personal, conducted via video call with curated leather and design materials sent to the bride in advance so she can touch and compare everything from home.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Can I customize the shoes for my bridesmaids too?
+        Can I design shoes for my bridesmaids too?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Absolutely — that's exactly what our Wedding Party package is designed for. The bride and her bridesmaids can create a cohesive look together, whether that means matching shoes, coordinating colors within a shared palette, or individually unique designs that share a common thread.</p>
+        <p>Absolutely — that is exactly what our Wedding Party package is designed for. The bride and her bridesmaids can create a cohesive look together, whether that means matching shoes, coordinating colors within a shared palette, or individually unique designs that share a common thread.</p>
         <p>Party sizes are fully flexible (2–12+ members), and every bridesmaid receives her own signature M.Gemi atelier gift box.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What is the Dance Party Edition?
+        Is this experience available for the groom and his groomsmen?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>The Dance Party Edition is a custom slipper experience designed for the reception — when the ceremony and photos are done and the real dancing begins. Instead of reaching for generic flats, the entire wedding party changes into their own M.Gemi slippers, custom-designed and handcrafted in Italy.</p>
-        <p>It can be gifted as a standalone experience or combined with any other package, and is available for the groom's party as well.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Is this experience available for the groom too?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">
-        <p>Yes — the full atelier experience is available for the groom and his groomsmen in all three package formats: Just the Groom, The Groom's Party, and the Dance Party Edition. Custom Italian leather dress shoes, designed exactly as they envision them.</p>
+        <p>Yes — the full atelier experience is available for the groom and his groomsmen in all three package formats: Just the Groom, The Groom's Party, and the Dance Party Edition. Custom handcrafted Italian leather dress shoes, designed exactly as they envision them.</p>
       </div>
     </div>
 
@@ -777,8 +795,8 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Simply choose your package and complete your enquiry with our team. We'll handle everything — a beautifully presented gift box arrives at the address of your choice, containing a keepsake atelier invitation and a personal note from you.</p>
-        <p>The bride receives all the information she needs to book her design session at her convenience. You don't need to coordinate any logistics — we take care of it all.</p>
+        <p>Simply choose your package and complete your enquiry with our team. We handle everything — a beautifully presented gift box arrives at the address of your choice, containing a keepsake atelier invitation and a personal note from you.</p>
+        <p>The bride receives all the information she needs to book her design session at her convenience. You do not need to coordinate any logistics — we take care of it all.</p>
       </div>
     </div>
 
@@ -788,32 +806,86 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Every shoe is handcrafted exclusively in Italy, in partnership with small, family-owned artisan workshops that M.Gemi has worked with since 2015. All leathers are sourced from Leather Working Group-certified tanneries committed to responsible production.</p>
+        <p>Every shoe is handcrafted exclusively in Italy, in partnership with small, family-owned artisan workshops that M.Gemi has worked alongside since 2015. All leathers are sourced from Leather Working Group-certified tanneries committed to responsible production.</p>
         <p>Italy has one of the world's oldest leather and shoemaking traditions — stretching back to the 8th century BC — and our artisan partners are among the finest practitioners of that craft alive today.</p>
       </div>
     </div>
 
+  </div>
+
+  <!-- GROUP 2: WEDDING SHOE ADVICE -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label"><span>Part Two</span></div>
+    <h3 class="faq-group-title">Choosing your <em>perfect</em> wedding shoe</h3>
+
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What choices does the bride get to make?
+        How do I choose the right heel height for a long day?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Everything. During her design session, the bride works directly with our team to choose the silhouette (pump, mule, flat, sandal, slingback), heel height, leather type and finish, color, lining, toe shape, embellishments (bows, rosettes, buckles, crystals), and any custom personal details such as monograms or a meaningful date on the insole.</p>
+        <p>If you rarely wear high heels, we advise against anything over 80mm — you run the risk of not being able to last the full day comfortably. If you love the look of a towering stiletto but have concerns about endurance, consider designing a second pair of M.Gemi shoes for the reception — that is exactly what our Dance Party Edition is for.</p>
+        <p>For those who want height without sacrifice, a 70mm heel is an elegant and far more wearable sweet spot. And there are plenty of beautifully designed kitten heels and block heels that offer a little lift without compromising on comfort throughout the day.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        How do I get started?
+        How can I ensure my shoes are comfortable on the day?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-a">
-        <p>Click "Gift This" or "Speak With Our Team" anywhere on this page. Fill in a few details about the occasion and the package you're interested in, and a member of our M.Gemi atelier team will reach out within one business day to walk you through every detail and make the process effortless.</p>
+        <p>Never wear your shoes for the very first time on your wedding day. Once your M.Gemi shoes arrive, wear them around the house with thin socks for 15-minute intervals to gently soften and shape the leather to your foot. Italian leather responds beautifully to this process — it will mold to you over time.</p>
+        <p>If you plan to dance through the night, our Dance Party Edition is designed precisely for this: a custom M.Gemi slipper in a silhouette you have also designed, ready to change into when the real celebration begins.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Should my shoes match my dress exactly?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>White or ivory is traditional and brings a wonderful sense of occasion to bridal footwear — but at the M.Gemi Atelier, the choice is entirely yours. Many brides prefer tonal contrasts: champagne, nude, or soft metallics that complement rather than match. If you love a pop of color, your shoes can even be your "something blue."</p>
+        <p>When considering your dress, think about visual balance too. A highly embellished gown often calls for a more refined, minimalist shoe so as not to compete. A simpler gown, on the other hand, is the perfect canvas for a more statement-making shoe — and that is exactly the kind of conversation we love having in your design session.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        When in the planning process should I think about my shoes?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>It makes the most sense to think about your wedding shoes after you have chosen your dress — but before your first fitting, so the dress can be tailored to exactly the right length. Leaving it to the last minute is the single most common bridal shoe regret.</p>
+        <p>With the M.Gemi Atelier, we recommend beginning the process at least 10–14 weeks before the wedding. The design session, fit kit, and crafting process all take time — and the earlier you begin, the more time you have to enjoy the experience rather than race through it.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I wear my wedding shoes again after the day?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Absolutely — and this is one of the great advantages of designing your own. Because your M.Gemi shoes are made to your exact specification, you can design something that works beautifully beyond the wedding day. A nude leather pump, a champagne slingback, or a classic pointed-toe flat in a jewel tone will carry effortlessly into your life after the wedding.</p>
+        <p>The Italian leather our artisans use only improves with age — it will soften, develop a beautiful patina, and become more personal to you with every wear.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I care for my M.Gemi wedding shoes after the day?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Prevention is the first step — apply a leather protector spray before wearing your shoes for the first time, especially if any part of your day is outdoors. Grass and stone can be unforgiving on delicate leathers and satins.</p>
+        <p>After the wedding, store your shoes in their M.Gemi box, stuffed with tissue to hold their shape. For everyday care, a good leather conditioner applied every few months will keep the leather supple and beautiful for years. If you ever want to refresh the color or have any repairs done, reach out to our team and we will connect you with our Italian partners.</p>
       </div>
     </div>
 
   </div>
+
 </section>
 
 
