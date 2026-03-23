@@ -135,7 +135,7 @@
   .process-header .section-eyebrow { justify-content:center; }
   .process-header .section-eyebrow::before { display:none; }
   .process-title { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,3.5vw,52px); color:var(--ivory); font-weight:300; margin-top:12px; }
-  .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; max-width:1100px; margin:0 auto; }
+  .process-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; max-width:1340px; margin:0 auto; }
   .step { background:rgba(250,247,242,0.028); padding:50px 38px; transition:background 0.4s, transform 0.3s; }
   .step:hover { background:rgba(184,150,90,0.07); transform:translateY(-4px); }
   .step-num { font-family:'Cormorant Garamond',serif; font-size:68px; font-weight:300; color:rgba(184,150,90,0.12); line-height:1; margin-bottom:22px; transition:color 0.4s; }
@@ -274,6 +274,39 @@
   .reveal.visible { opacity:1; transform:none; }
   .rd1 { transition-delay:0.1s; } .rd2 { transition-delay:0.2s; } .rd3 { transition-delay:0.3s; }
 
+  /* FAQ */
+  .faq-section { padding:120px 80px; max-width:900px; margin:0 auto; }
+  .faq-header { text-align:center; margin-bottom:72px; }
+  .faq-title { font-family:'Cormorant Garamond',serif; font-size:clamp(38px,4vw,58px); font-weight:300; color:var(--deep); line-height:1.15; }
+  .faq-title em { font-style:italic; color:var(--gold); }
+  .faq-subtitle { font-size:14px; line-height:1.9; color:var(--mink); margin-top:20px; max-width:560px; margin-left:auto; margin-right:auto; }
+  .faq-item { border-bottom:1px solid rgba(122,106,90,0.18); }
+  .faq-item:first-of-type { border-top:1px solid rgba(122,106,90,0.18); }
+  .faq-q {
+    width:100%; background:none; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:24px; padding:28px 0; text-align:left;
+    font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400;
+    color:var(--deep); transition:color 0.3s;
+  }
+  .faq-q:hover { color:var(--gold); }
+  .faq-q.open { color:var(--gold); }
+  .faq-icon {
+    width:28px; height:28px; border:1px solid rgba(184,150,90,0.35);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; font-size:16px; color:var(--gold);
+    transition:transform 0.35s, background 0.3s;
+  }
+  .faq-q.open .faq-icon { transform:rotate(45deg); background:var(--gold); color:var(--ivory); border-color:var(--gold); }
+  .faq-a {
+    max-height:0; overflow:hidden;
+    transition:max-height 0.45s ease, padding 0.35s ease;
+    padding:0 0 0 0;
+  }
+  .faq-a.open { max-height:600px; padding-bottom:28px; }
+  .faq-a p { font-size:14px; line-height:2; color:var(--mink); }
+  .faq-a p + p { margin-top:16px; }
+
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width:1024px) {
     .intro { padding:100px 56px; gap:56px; }
@@ -350,6 +383,8 @@
     .cta-sub { font-size:13px; }
     .cta-buttons { flex-direction:column; align-items:center; }
     .btn-dark, .btn-outline { width:100%; max-width:340px; text-align:center; padding:16px 32px; }
+    .faq-section { padding:72px 24px; }
+    .faq-q { font-size:18px; padding:22px 0; }
     .cta-floral { display:none; }
 
     /* Footer */
@@ -395,7 +430,7 @@
     .brand-story { padding:140px 80px; }
     .packages { padding:130px 80px; }
     .gift-grid { grid-template-columns:repeat(3,1fr); gap:24px; }
-    .process-steps { grid-template-columns:repeat(4,1fr); }
+    .process-steps { grid-template-columns:repeat(5,1fr); }
   }
 </style>
 </head>
@@ -407,6 +442,7 @@
     <button class="hide-m nav-scroll-link" data-scroll="experience">The Experience</button>
     <button class="hide-m nav-scroll-link" data-scroll="packages">Packages</button>
     <button class="hide-m nav-scroll-link" data-scroll="story">Our Story</button>
+    <button class="hide-m nav-scroll-link" data-scroll="faq">Common Questions</button>
     <!-- DEV TOOLS -->
     <div class="dev-tools-wrap hide-m">
       <button class="dev-tools-btn" id="dev-tools-btn" onclick="toggleDevTools(event)">
@@ -478,8 +514,9 @@
   <div class="process-steps">
     <div class="step reveal"><div class="step-num">01</div><div class="step-title">The Gift Arrives</div><p class="step-body">An exquisitely packaged keepsake box — a beautiful atelier invitation, a personal note from you, and a ribbon-tied guide to the experience that awaits.</p></div>
     <div class="step reveal rd1"><div class="step-num">02</div><div class="step-title">The Design Session</div><p class="step-body">A private session with the M.Gemi design team — in person in New York or virtually — exploring leathers, silhouettes, heels, embellishments, and every dream detail.</p></div>
-    <div class="step reveal rd2"><div class="step-num">03</div><div class="step-title">Crafted in Italy</div><p class="step-body">Her vision travels to our family workshop partners in Italy, where master artisans bring it to life using generations-old techniques and the finest certified leathers.</p></div>
-    <div class="step reveal rd3"><div class="step-num">04</div><div class="step-title">Delivered in Splendor</div><p class="step-body">Her finished shoes arrive in a signature M.Gemi atelier box, wrapped in Italian tissue — ready for the most important walk of her life.</p></div>
+    <div class="step reveal rd2"><div class="step-num">03</div><div class="step-title">The Fit Kit</div><p class="step-body">After your design session, we send a fit kit — a set of white shoes in the exact silhouette you chose, in a range of sizes. They are not your design; simply a precise fit tool so your finished shoes are perfect from the very first wear.</p></div>
+    <div class="step reveal rd3"><div class="step-num">04</div><div class="step-title">Crafted in Italy</div><p class="step-body">With your fit confirmed, your vision travels to our family workshop partners in Italy, where master artisans bring every detail to life using generations-old techniques and the finest certified leathers.</p></div>
+    <div class="step reveal rd3"><div class="step-num">05</div><div class="step-title">Delivered in Splendor</div><p class="step-body">Your finished shoes arrive in a signature M.Gemi atelier box, wrapped in Italian tissue — ready for the most important walk of your life.</p></div>
   </div>
 </section>
 
@@ -576,6 +613,127 @@
     <button class="btn-outline" id="cta-contact-btn">Speak With Our Team</button>
   </div>
 </section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section" id="faq">
+  <div class="faq-header reveal">
+    <div class="section-eyebrow" style="justify-content:center"><span></span>Common Questions</div>
+    <h2 class="faq-title">Everything you want<br>to <em>know</em></h2>
+    <p class="faq-subtitle">Answers to the questions brides and gift-givers ask most — about the experience, timing, and what to expect.</p>
+  </div>
+
+  <div class="faq-list reveal">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What exactly is the M.Gemi Wedding Atelier experience?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>The Wedding Atelier is a bespoke shoe design experience — a private session with the M.Gemi design team where the bride works one-on-one to create a completely custom pair of wedding shoes, handcrafted in Italy. Every detail is hers: the silhouette, heel height, leather, color, lining, and embellishments.</p>
+        <p>It begins with a beautifully packaged gift box and an atelier invitation. From there, she books her design session and works directly with our team to bring her vision to life. The finished shoes arrive in a signature M.Gemi box, ready for her wedding day.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        When should we book the experience?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>We recommend gifting the atelier experience at the engagement or bridal shower — ideally at least 10–14 weeks before the wedding date. This allows the bride ample time to dream, schedule her design session, and receive her finished shoes well before the big day.</p>
+        <p>If the wedding is sooner than 10 weeks away, please reach out to our team directly and we'll do everything we can to accommodate.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is the design session in person or virtual?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Both options are available. In-person sessions take place at our New York atelier, and are a truly special experience — seeing and feeling the leathers, exploring samples, and working side-by-side with our design team.</p>
+        <p>Virtual sessions are equally thorough and personal, conducted via video call with curated leather and design materials sent to the bride in advance so she can touch and compare everything from home.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I customize the shoes for my bridesmaids too?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Absolutely — that's exactly what our Wedding Party package is designed for. The bride and her bridesmaids can create a cohesive look together, whether that means matching shoes, coordinating colors within a shared palette, or individually unique designs that share a common thread.</p>
+        <p>Party sizes are fully flexible (2–12+ members), and every bridesmaid receives her own signature M.Gemi atelier gift box.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is the Dance Party Edition?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>The Dance Party Edition is a custom slipper experience designed for the reception — when the ceremony and photos are done and the real dancing begins. Instead of reaching for generic flats, the entire wedding party changes into their own M.Gemi slippers, custom-designed and handcrafted in Italy.</p>
+        <p>It can be gifted as a standalone experience or combined with any other package, and is available for the groom's party as well.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is this experience available for the groom too?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes — the full atelier experience is available for the groom and his groomsmen in all three package formats: Just the Groom, The Groom's Party, and the Dance Party Edition. Custom Italian leather dress shoes, designed exactly as they envision them.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I give this as a gift?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Simply choose your package and complete your enquiry with our team. We'll handle everything — a beautifully presented gift box arrives at the address of your choice, containing a keepsake atelier invitation and a personal note from you.</p>
+        <p>The bride receives all the information she needs to book her design session at her convenience. You don't need to coordinate any logistics — we take care of it all.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Where are the shoes made?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Every shoe is handcrafted exclusively in Italy, in partnership with small, family-owned artisan workshops that M.Gemi has worked with since 2015. All leathers are sourced from Leather Working Group-certified tanneries committed to responsible production.</p>
+        <p>Italy has one of the world's oldest leather and shoemaking traditions — stretching back to the 8th century BC — and our artisan partners are among the finest practitioners of that craft alive today.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What choices does the bride get to make?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Everything. During her design session, the bride works directly with our team to choose the silhouette (pump, mule, flat, sandal, slingback), heel height, leather type and finish, color, lining, toe shape, embellishments (bows, rosettes, buckles, crystals), and any custom personal details such as monograms or a meaningful date on the insole.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I get started?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Click "Gift This" or "Speak With Our Team" anywhere on this page. Fill in a few details about the occasion and the package you're interested in, and a member of our M.Gemi atelier team will reach out within one business day to walk you through every detail and make the process effortless.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <footer>
   <div>
@@ -683,6 +841,14 @@ document.querySelectorAll('[data-scroll]').forEach(el => { el.addEventListener('
 function toggleDevTools(e) { e.stopPropagation(); const btn=document.getElementById('dev-tools-btn'); const dd=document.getElementById('dev-tools-dd'); const open=dd.classList.toggle('open'); btn.classList.toggle('open',open); }
 document.addEventListener('click', () => { const dd=document.getElementById('dev-tools-dd'); const btn=document.getElementById('dev-tools-btn'); if(dd){dd.classList.remove('open');} if(btn){btn.classList.remove('open');} });
 function hardRefresh(e) { e.preventDefault(); e.stopPropagation(); window.location.reload(true); }
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-q.open').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+  // open this one if it was closed
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
 </script>
 </body>
 </html>
