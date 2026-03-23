@@ -32,6 +32,48 @@
   .nav-cta-btn { padding:11px 26px; background:var(--gold); color:var(--ivory) !important; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; transition:background 0.3s; }
   .nav-cta-btn:hover { background:var(--rose) !important; }
 
+  /* DEV TOOLS DROPDOWN */
+  .dev-tools-wrap { position:relative; }
+  .dev-tools-btn {
+    display:flex; align-items:center; gap:5px;
+    padding:0; background:none; border:none; cursor:pointer;
+    font-family:'Jost',sans-serif; font-size:9px; font-weight:400;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:rgba(250,247,242,0.35); transition:color 0.3s;
+  }
+  nav.scrolled .dev-tools-btn { color:rgba(122,106,90,0.5); }
+  .dev-tools-btn:hover { color:var(--gold) !important; }
+  .dev-tools-btn .dt-arrow { font-size:7px; transition:transform 0.25s; }
+  .dev-tools-btn.open .dt-arrow { transform:rotate(180deg); }
+  .dev-tools-dd {
+    display:none;
+    position:absolute; top:calc(100% + 10px); right:0;
+    background:var(--charcoal);
+    border:1px solid rgba(184,150,90,0.2);
+    padding:6px;
+    min-width:168px;
+    z-index:600;
+    box-shadow:0 12px 32px rgba(0,0,0,0.4);
+  }
+  .dev-tools-dd.open { display:block; animation:fadeUp 0.2s ease; }
+  .dev-tools-dd a {
+    display:flex; align-items:center; gap:10px;
+    padding:9px 12px;
+    text-decoration:none;
+    color:rgba(250,247,242,0.65);
+    font-size:10.5px; font-family:'Jost',sans-serif; font-weight:300;
+    letter-spacing:0.05em;
+    transition:background 0.2s, color 0.2s;
+    white-space:nowrap;
+  }
+  .dev-tools-dd a:hover { background:rgba(184,150,90,0.1); color:var(--ivory); }
+  .dev-tools-dd .dd-icon {
+    width:20px; height:20px; border-radius:3px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; flex-shrink:0;
+  }
+  .dd-divider { height:1px; background:rgba(184,150,90,0.12); margin:4px 0; }
+
   /* HERO — full bleed photo */
   .hero { min-height:100vh; position:relative; overflow:hidden; display:flex; align-items:center; }
 
@@ -365,6 +407,21 @@
     <button class="hide-m nav-scroll-link" data-scroll="experience">The Experience</button>
     <button class="hide-m nav-scroll-link" data-scroll="packages">Packages</button>
     <button class="hide-m nav-scroll-link" data-scroll="story">Our Story</button>
+    <!-- DEV TOOLS -->
+    <div class="dev-tools-wrap hide-m">
+      <button class="dev-tools-btn" id="dev-tools-btn" onclick="toggleDevTools(event)">
+        Dev Tools <span class="dt-arrow">&#9660;</span>
+      </button>
+      <div class="dev-tools-dd" id="dev-tools-dd">
+        <a href="https://claude.ai/chat/871e0c4b-11cc-4de9-9aeb-531d1937a67b" target="_blank">
+          <span class="dd-icon" style="background:#92400e">✦</span>Claude
+        </a>
+        <div class="dd-divider"></div>
+        <a href="https://github.com/benfischman71/mgemi-wedding-atelier/blob/main/index.html" target="_blank">
+          <span class="dd-icon" style="background:#24292e;border:1px solid #444">&#128025;</span>GitHub
+        </a>
+      </div>
+    </div>
     <button class="nav-cta-btn" id="nav-gift-btn">Gift This</button>
   </div>
 </nav>
@@ -619,6 +676,8 @@ document.getElementById('cta-contact-btn').addEventListener('click', () => openC
 document.getElementById('footer-contact-link').addEventListener('click', e => { e.preventDefault(); openContact(); });
 document.getElementById('contact-form').addEventListener('submit', e => { e.preventDefault(); document.getElementById('contact-form-wrap').style.display='none'; document.getElementById('contact-success').classList.add('show'); setTimeout(() => { closeModal('modal-contact'); setTimeout(() => { document.getElementById('contact-form-wrap').style.display=''; document.getElementById('contact-success').classList.remove('show'); e.target.reset(); }, 500); }, 3000); });
 document.querySelectorAll('[data-scroll]').forEach(el => { el.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); const id = this.dataset.scroll; const t = document.getElementById(id); if (t) t.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+function toggleDevTools(e) { e.stopPropagation(); const btn=document.getElementById('dev-tools-btn'); const dd=document.getElementById('dev-tools-dd'); const open=dd.classList.toggle('open'); btn.classList.toggle('open',open); }
+document.addEventListener('click', () => { const dd=document.getElementById('dev-tools-dd'); const btn=document.getElementById('dev-tools-btn'); if(dd){dd.classList.remove('open');} if(btn){btn.classList.remove('open');} });
 </script>
 </body>
 </html>
