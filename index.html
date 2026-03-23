@@ -420,6 +420,10 @@
         <a href="https://github.com/benfischman71/mgemi-wedding-atelier/blob/main/index.html" target="_blank">
           <span class="dd-icon" style="background:#24292e;border:1px solid #444">&#128025;</span>GitHub
         </a>
+        <div class="dd-divider"></div>
+        <a href="#" onclick="hardRefresh(event)" style="color:#f87171">
+          <span class="dd-icon" style="background:#7f1d1d">&#8635;</span>Clear Cache &amp; Refresh
+        </a>
       </div>
     </div>
     <button class="nav-cta-btn" id="nav-gift-btn">Gift This</button>
@@ -678,6 +682,7 @@ document.getElementById('contact-form').addEventListener('submit', e => { e.prev
 document.querySelectorAll('[data-scroll]').forEach(el => { el.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); const id = this.dataset.scroll; const t = document.getElementById(id); if (t) t.scrollIntoView({behavior:'smooth', block:'start'}); }); });
 function toggleDevTools(e) { e.stopPropagation(); const btn=document.getElementById('dev-tools-btn'); const dd=document.getElementById('dev-tools-dd'); const open=dd.classList.toggle('open'); btn.classList.toggle('open',open); }
 document.addEventListener('click', () => { const dd=document.getElementById('dev-tools-dd'); const btn=document.getElementById('dev-tools-btn'); if(dd){dd.classList.remove('open');} if(btn){btn.classList.remove('open');} });
+function hardRefresh(e) { e.preventDefault(); e.stopPropagation(); window.location.reload(true); }
 </script>
 </body>
 </html>
