@@ -21,10 +21,11 @@
   body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
 
   /* NAV */
-  nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:22px 52px; transition:background 0.5s, backdrop-filter 0.5s; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:22px 52px; transition:background 0.5s, backdrop-filter 0.5s; gap:48px; }
   nav.scrolled { background:rgba(250,247,242,0.93); backdrop-filter:blur(12px); box-shadow:0 1px 0 rgba(184,150,90,0.12); }
-  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:0.35em; text-transform:uppercase; color:var(--ivory); transition:color 0.5s; }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:0.35em; text-transform:uppercase; color:var(--ivory); transition:color 0.3s; background:none; border:none; cursor:pointer; padding:0; flex-shrink:0; }
   nav.scrolled .nav-logo { color:var(--charcoal); }
+  .nav-logo:hover { color:var(--gold) !important; }
   .nav-links { display:flex; gap:36px; align-items:center; }
   .nav-links a, .nav-scroll-link { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(250,247,242,0.7); text-decoration:none; transition:color 0.3s; background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-weight:300; padding:0; }
   nav.scrolled .nav-links a, nav.scrolled .nav-scroll-link { color:var(--mink); }
@@ -534,7 +535,7 @@
 <body>
 
 <nav id="main-nav">
-  <div class="nav-logo">M.Gemi</div>
+  <button class="nav-logo" id="nav-logo-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">M.Gemi</button>
   <div class="nav-links">
     <button class="hide-m nav-scroll-link" data-scroll="experience">The Experience</button>
     <button class="hide-m nav-scroll-link" data-scroll="packages">Packages</button>
